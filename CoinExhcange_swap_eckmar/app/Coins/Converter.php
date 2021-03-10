@@ -2,7 +2,6 @@
 
 namespace App\Coins;
 use  App\Http\Controllers\Cryptiswap;
-require_once '/Users/amarghaly/Downloads/CoinExhcange_swap_eckmar/app/Http/Controllers/Cryptiswap.php';
 
 class Converter
 {

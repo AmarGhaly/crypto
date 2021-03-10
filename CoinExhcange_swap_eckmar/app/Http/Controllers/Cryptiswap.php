@@ -2,20 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Http;
-
-// class Cryptiswap extends Controller
-// {
-//     //
-
-//     function list()
-//     {
-//        $data= Http::get('https://api.changenow.io/v1/currencies?active=true&fixedRate=true')->json();
-//        return view('changenow', ['data'=>$data]);
-//     }
-// }
-
 class Cryptiswap
 {
 
@@ -73,9 +59,9 @@ class Cryptiswap
         //return view('cryptiswap', ['result'=>$result]);
     }
 
-    public function makeOrder($coin_send, $coin_receive, $rate_type, $amount_send, $recipient)
+    public function makeOrder($coin_send='BTC', $coin_receive='XMR', $rate_type='dynamic', $amount_send='100', $recipient='0x0x0x0x0x')
     {
-        $rate = $this->getRate($coin_send, $coin_receive, $rate_type)->data;
+        $rate = $this->getRate($coin_send, $coin_receive, $rate_type)->a;
 
         $post = [
             'apikey' => 'M<nDp{^QVa{tD`+94a\Cj-gRyP-<3Pedt4fR=$qa',
@@ -98,8 +84,9 @@ class Cryptiswap
 
         curl_close($ch);
 
-        $result = json_decode($server_response);
-        return $result;
+        $result = json_decode($server_response, JSON_PRETTY_PRINT);
+       // return $result;
+    return view('cryptiswap', ['result'=>$result]);
     }
 
     public function checkOrder($order_id)

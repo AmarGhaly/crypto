@@ -10,6 +10,7 @@ use App\Trade;
 use App\Trade\TradeDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Cryptiswap;
 
 class TradeController extends Controller
 {
