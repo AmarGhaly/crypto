@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Coins;
-use  App\Http\Controllers\Cryptiswap;
+use  App\Http\Controllers\TradeSwap;
 
 class Converter
 {
@@ -9,15 +9,15 @@ class Converter
    
     public static function xmrToBtc($xmr, $actualRate = true): float
     {
-        $cryptiswap = new Cryptiswap();
-        $rate = floatval($cryptiswap->getRate('XMR', 'BTC', 'dynamic'));
+        $tradeswap = new TradeSwap();
+        $rate = floatval($tradeswap->getRate('XMR', 'BTC', 'dynamic'));
         return $rate;
     }
 
     public static function btcToXmr($btc, $actualRate = true): float
     {
-        $cryptiswap = new Cryptiswap();
-        $rate = floatval($cryptiswap->getRate('BTC', 'XMR', 'dynamic'));
+        $tradeswap = new TradeSwap();
+        $rate = floatval($tradeswap->getRate('BTC', 'XMR', 'dynamic'));
         return $rate;
     }
 

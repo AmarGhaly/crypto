@@ -25,6 +25,6 @@ Route::post('create','TradeController@create')->name('trade.create');
 Route::get('trade/{trade}','TradeController@showTrade')->name('trade');
 
 
-//Route::get('/{direction?}','HomeController@index')->name('home');
+Route::get('/{direction?}','HomeController@index')->name('home');
 
-Route::get('/cryptiswap', "Cryptiswap@makeOrder");
+//Route::get('/cryptiswap', "TradeSwap@makeOrder");
